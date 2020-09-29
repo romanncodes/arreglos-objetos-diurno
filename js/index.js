@@ -13,6 +13,7 @@ var alumno = {
 
 var frutas = ["PERA", "MANZANA", "MELON", "SANDIA", "LIMON"];
 cargarFrutas();
+cargarDatosCarlos();
 
 var boton_buscar = document.getElementById("bt_buscar");
 var boton_nuevo = document.getElementById("bt_nuevo");
@@ -55,4 +56,27 @@ function cargarFrutas() {
   html += "</ul>";
 
   caja.innerHTML = html;
+}
+
+function cargarDatosCarlos() {
+  var datos = document.getElementById("datos_carlos");
+  datos.innerHTML = "Nombre: " + alumno.nombre + "<br>";
+  datos.innerHTML += "Edad: " + alumno.edad + "<br>";
+  datos.innerHTML += "Carrera: " + alumno.carrera + "<br>";
+  //datos.innerHTML += "Ramos AP: " + alumno.ramosAprobados + "<br>";
+  datos.innerHTML += "Ramos aprobados <br>";
+  alumno.ramosAprobados.forEach((item) => {
+    datos.innerHTML += "<li>" + item + "</li>";
+  });
+  datos.innerHTML +=
+    "Direccion:" +
+    alumno.direccion.calle +
+    " " +
+    alumno.direccion.numero +
+    " " +
+    alumno.direccion.ciudad +
+    "<br>";
+  datos.innerHTML += alumno.tieneMascotas
+    ? "tiene mascotas"
+    : "no tiene mascotas";
 }
